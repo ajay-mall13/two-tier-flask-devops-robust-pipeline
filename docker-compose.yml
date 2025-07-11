@@ -27,8 +27,7 @@ services:
 
 
   flask-app:                      # ✅ Must be inside 'services'
-    build:
-      context: .
+    image: ajaymall/two-tier-flask-app:latest
     container_name: flask-app
     ports:
       - "5000:5000"
