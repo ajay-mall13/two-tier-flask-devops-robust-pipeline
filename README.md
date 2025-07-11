@@ -122,7 +122,7 @@ docker run -d \
 
 - This is a basic setup for demonstration purposes. In a production environment, you should follow best practices for security and performance.
 
-- Be cautious when executing SQL queries directly. Validate and sanitize user inputs to prevent vulnerabilities like SQL injection.
+- Be cautious when executing SQL queries directly. Validate and sanitize user inputs to prevent vulnerabilities like SQL.
 
 - If you encounter issues, check Docker logs and error messages for troubleshooting.
 
