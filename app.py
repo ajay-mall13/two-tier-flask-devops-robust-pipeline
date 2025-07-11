@@ -1,5 +1,7 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+import time
+import MySQLdb
+from flask import Flask, render_template, request, jsonify
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
@@ -13,16 +15,33 @@ app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB', 'default_db')
 # Initialize MySQL
 mysql = MySQL(app)
 
+def wait_for_mysql():
+    while True:
+        try:
+            print("⏳ Waiting for MySQL connection...")
+            conn = MySQLdb.connect(
+                host=app.config['MYSQL_HOST'],
+                user=app.config['MYSQL_USER'],
+                passwd=app.config['MYSQL_PASSWORD'],
+                db=app.config['MYSQL_DB']
+            )
+            print("✅ Connected to MySQL!")
+            conn.close()
+            break
+        except Exception as e:
+            print(f"❌ MySQL not ready yet: {e}")
+            time.sleep(3)
+
 def init_db():
     with app.app_context():
         cur = mysql.connection.cursor()
         cur.execute('''
-        CREATE TABLE IF NOT EXISTS messages (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            message TEXT
-        );
+            CREATE TABLE IF NOT EXISTS messages (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                message TEXT
+            );
         ''')
-        mysql.connection.commit()  
+        mysql.connection.commit()
         cur.close()
 
 @app.route('/')
@@ -43,6 +62,7 @@ def submit():
     return jsonify({'message': new_message})
 
 if __name__ == '__main__':
+    wait_for_mysql()  # ✅ Wait until MySQL is ready
     init_db()
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
 
