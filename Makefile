@@ -41,7 +41,7 @@ endif
 stop:
 	$(DOCKER_COMPOSE) down
 
-# Clean target
+
 clean: stop
 	$(DOCKER_COMPOSE) rm -f
 	docker system prune -f
