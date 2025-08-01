@@ -227,7 +227,7 @@ sudo systemctl enable jenkins
 
 
 
-## ⚡ Quick Start (Step‑by‑Step)
+## ⚡ Quick Start or  webhooks set-up
 
 1. **Webhook create karo**   
    GitHub → *Settings* → *Webhooks* →  
