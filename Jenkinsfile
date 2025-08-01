@@ -15,9 +15,9 @@ pipeline {
             }
         }
 
-        stage('') {
+        stage('test') {
             steps {
-   		echo "image"
+   		echo "devloper test dega"
             }
         }
 
