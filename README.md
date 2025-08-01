@@ -211,6 +211,21 @@ sudo systemctl enable jenkins
 
 
 
+## 🔐 Jenkins Credentials Setup
+
+1. Go to **Jenkins Dashboard > Manage Jenkins > Credentials > Global > Add Credentials**.
+2. Choose:
+   - **Kind**: `Username with password`
+   - **Username**: Your Docker Hub username
+   - **Password**: create a personal access token and give this token
+   - **ID**: `dockerhub`
+3. Click **create**
+
+---
+
+
+
+
 
 ## ⚡ Quick Start (Step‑by‑Step)
 
