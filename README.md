@@ -272,12 +272,15 @@ This image is automatically built and deployed through the Jenkins pipeline.
 
 <img width="100%" alt="Docker Hub Image" src="https://github.com/user-attachments/assets/1916f684-2776-4d7b-8b81-303f09b2ac4c" />
 
+
+
 ---
 
 ### 🔁 End-to-end Jenkins Pipeline  
 Triggered by GitHub pushes — automates pull → build → push to Docker Hub → deploy on EC2 using `docker-compose`.
 
-<img width="100%" alt="Jenkins Pipeline" src="https://github.com/user-attachments/assets/19945c54-0e45-46e0-8751-ca55d66ef96e" />
+<img width="1625" height="768" alt="Screenshot 2025-08-01 191556" src="https://github.com/user-attachments/assets/765614a1-97e9-4b94-915a-762c44e267eb" />
+
 
 ---
 
